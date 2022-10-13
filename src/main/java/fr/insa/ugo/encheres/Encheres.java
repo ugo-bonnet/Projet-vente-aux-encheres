@@ -24,15 +24,10 @@ public class Encheres {
         }
     }
     
-    public static Connection connectGeneralPostGres(String host,
-            int port, String database,
-            String user, String pass)
+    public static Connection connectGeneralPostGres(String host, int port, String database, String user, String pass)
             throws ClassNotFoundException, SQLException {
         Class.forName("org.postgresql.Driver");
-        Connection con = DriverManager.getConnection(
-                "jdbc:postgresql://" + host + ":" + port
-                + "/" + database,
-                user, pass);
+        Connection con = DriverManager.getConnection("jdbc:postgresql://" + host + ":" + port + "/" + database, user, pass);
         con.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
         return con;
     }
